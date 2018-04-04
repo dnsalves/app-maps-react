@@ -1,33 +1,26 @@
 import React, { Component } from 'react'
-import GoogleMapReact from 'google-map-react';
+import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 
-export default class Map extends Component {
-    renderMarkers(map, maps) {
-        let marker = new maps.Marker({
-            position: this.props.center,
-            map,
-            title: 'Hello World!'
-        });
-    }
+import Env from '../consts'
+
+export class MapContainer extends Component {
 
     render() {
-        const AnyReactComponent = ({ text }) => <div>{text}</div>;
+        var center = this.props.center.lat ? this.props.center : { lat: -23.533773, lng: -46.625290 }
         return (
-            <div className="card" style={{ height: '100vh', width: '100%' }}>
-                <GoogleMapReact
-                    defaultCenter={{ lat: 59.95, lng: 30.33 }}
-                    defaultZoom={15}
-                    bootstrapURLKeys={{ key: "AIzaSyD5qaGFVJBRiHmFAU7BRKKoSTcixourbBA" }}
-                    center={this.props.center}
-                    onGoogleApiLoaded={({ map, maps }) => this.renderMarkers()}
-                >
-                    <AnyReactComponent
-                        lat={this.props.center.lat}
-                        lng={this.props.center.lng}
-                        text={'Kreyser Avrora'}
-                    />
-                </GoogleMapReact>
+            <div className="card" style={{ height: '600px', width: '100%' }}>
+                <Map google={this.props.google} zoom={this.props.center.lat ? 16 : 14} center={center} >
+
+                    <Marker
+                        title={'The marker`s title will appear as a tooltip.'}
+                        name={'SOMA'}
+                        position={this.props.center} />
+                </Map>
             </div>
-        )
+        );
     }
 }
+
+export default GoogleApiWrapper({
+    apiKey: Env.GOOGLE_KEY_SERVER
+})(MapContainer)

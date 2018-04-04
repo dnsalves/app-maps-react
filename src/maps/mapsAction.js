@@ -17,3 +17,8 @@ export const changeDescription = e => ({
     type: 'DESCRIPTION_CHANGED',
     payload : e.target.value
 })
+
+export const clear = () => ({
+    type: 'MAP_CLEARED',
+    payload : ''
+})
