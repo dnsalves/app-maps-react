@@ -5,7 +5,6 @@ export class MapContainer extends Component {
 
     render() {
         var center = this.props.center.lat ? this.props.center : { lat: -23.533773, lng: -46.625290 }
-        console.log(center);
         return (
             <div className="card" style={{ height: '600px', width: '100%' }}>
                 <Map google={this.props.google} zoom={this.props.center.lat ? 16 : 14} center={center} >
@@ -21,5 +20,5 @@ export class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-    apiKey: 'AIzaSyD5qaGFVJBRiHmFAU7BRKKoSTcixourbBA'
+    apiKey: 'AIzaSyByLqB8hD4BaHp44je5U7SUv4wk0zH3N4E'
 })(MapContainer)
