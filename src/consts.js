@@ -1,3 +1,3 @@
 export default {     
-    GOOGLE_KEY: 'AIzaSyAvhn0wkIg7WSlMy10IOmN8-uipX1f5afE'
+    GOOGLE_KEY: 'AIzaSyByLqB8hD4BaHp44je5U7SUv4wk0zH3N4E'
 }
