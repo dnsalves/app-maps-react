@@ -1,6 +1,8 @@
 const INITIAL_STATE = { address: '', location: {} }
 
 export default (state = INITIAL_STATE, action) => {
+    console.log(action.payload);
+    
     switch (action.type) {
         case 'MAP_FETCHED':
             return { ...state, location: action.payload.data.results[0].geometry.location }
